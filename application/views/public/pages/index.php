@@ -223,19 +223,19 @@
       <form action="<?= base_url('home/sendMail') ?>" class="contact__form" method="post">
         <div class="contact__inputs">
           <div class="contact__content">
-            <input type="text" name="yourname" class="contact__input" required>
+            <input type="text" name="yourname" class="contact__input" required autocomplete="off">
             <label for="yourname" class="contact__label">Your Name</label>
           </div>
           <div class="contact__content">
-            <input type="email" name="yourmail" class="contact__input" required>
+            <input type="email" name="yourmail" class="contact__input" required autocomplete="off">
             <label for="yourmail" class="contact__label">Email</label>
           </div>
           <div class="contact__content">
-            <input type="text" name="yoursubject" class="contact__input" required>
+            <input type="text" name="yoursubject" class="contact__input" required autocomplete="off">
             <label for="yoursubject" class="contact__label">Subject</label>
           </div>
           <div class="contact__content contact__area">
-            <textarea type="text" name="yourmessage" class="contact__input" maxlength="150" required></textarea>
+            <textarea type="text" name="yourmessage" class="contact__input" maxlength="150" required autocomplete="off"></textarea>
             <label for="yourmessage" class="contact__label">Message</label>
           </div>
         </div>
