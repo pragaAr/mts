@@ -19,36 +19,25 @@ const swiper = new Swiper(".swiper", {
 });
 
 const myswiper = new Swiper(".swiper-brand", {
-	slidesPerView: 2,
-	spaceBetween: 20,
 	loop: true,
-	centeredSlide: true,
+	spaceBetween: 20,
+	autoplay: {
+		delay: 4500,
+		disableOnInteraction: false,
+	},
 	pagination: {
 		el: ".brand__pagination",
 		clickable: true,
 	},
-
-	autoplay: {
-		delay: 2500,
-	},
-
+	centeredSlides: true,
 	breakpoints: {
 		0: {
 			slidesPerView: 1,
 		},
-		320: {
-			slidesPerView: 2,
-		},
-		520: {
+		768: {
 			slidesPerView: 3,
 		},
-		767: {
-			slidesPerView: 4,
-		},
-		992: {
-			slidesPerView: 5,
-		},
-		1200: {
+		1020: {
 			slidesPerView: 5,
 		},
 	},

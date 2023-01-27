@@ -152,30 +152,8 @@ sr.reveal(`.section__title-center`, { delay: 500 });
 sr.reveal(`.about__img, .contact__box`, { origin: "left" });
 sr.reveal(`.about__data, .contact__form`, { origin: "right" });
 sr.reveal(
-	`.steps__card, .product__card, .see__all__btn, .form__search_product, .pagination, .product__notfound, .questions__group, .footer`,
+	`.steps__card, .product__card, .ourproduct__card, .see__all__btn, .form__search_product, .pagination, .product__notfound, .questions__group, .footer`,
 	{
 		interval: 100,
 	}
 );
-
-const dataelmsuccess = document.querySelector(".mailsuccess");
-const mailsuccess = dataelmsuccess.getAttribute("data-flashdata");
-
-if (mailsuccess) {
-	Swal.fire({
-		icon: "success",
-		title: "Success!",
-		text: mailsuccess,
-	});
-}
-
-const dataelmfail = document.querySelector(".mailfailed");
-const mailfailed = dataelmfail.getAttribute("data-flashdata");
-
-if (mailfailed) {
-	Swal.fire({
-		icon: "error",
-		title: "Oops!",
-		text: mailfailed,
-	});
-}

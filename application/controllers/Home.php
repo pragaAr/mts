@@ -20,7 +20,9 @@ class Home extends CI_Controller
     $data['category'] = $this->Category->getLimitData();
     $data['hero']     = $this->Hero->getLatestData();
     $data['merk']     = $this->Merk->getData();
+    $data['merks']     = $this->Merk->getData();
     $data['product']  = $this->Product->getLimitData();
+    $data['products']  = $this->Product->getLimitData();
     $data['sub']      = $this->Subcategory->getData();
 
     $this->load->view('public/layout/header');
@@ -51,6 +53,11 @@ class Home extends CI_Controller
     $this->load->view('public/layout/header');
     $this->load->view('public/pages/product', $data);
     $this->load->view('public/layout/footer');
+  }
+
+  public function categories($id)
+  {
+    
   }
 
   public function productcategories()

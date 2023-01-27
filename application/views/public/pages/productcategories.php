@@ -21,7 +21,7 @@
           <a href="<?= base_url('home/#brands') ?>" class="nav__link">Brands</a>
         </li>
         <li class="nav__item">
-          <a href="<?= base_url('home/#contact') ?>" class="nav__link">Contact Us</a>
+          <a href="<?= base_url('home/#contact') ?>" class="nav__link">Contact</a>
         </li>
       </ul>
       <div class="nav__close" id="nav-close">
@@ -48,12 +48,12 @@
       <input type="submit" class="search__btn" name="submit"></input>
     </form>
     <?php if (!empty($category)) { ?>
-      <div class="product__container grid">
+      <div class="ourproduct__container">
         <?php foreach ($category as $category) : ?>
-          <article class="product__card">
-            <img src="<?= base_url('assets/upload/category/') . $category->category_img ?>" alt="img category" class="product__img">
-            <h3 class="product__title"><?= ucwords($category->category_name) ?></h3>
-            <a href="<?= base_url('home/subcategory/') . $category->id_category ?>" class="product__button">Details</a>
+          <article class="ourproduct__card">
+            <img src="<?= base_url('assets/upload/category/') . $category->category_img ?>" alt="img category" class="ourproduct__img">
+            <h3 class="ourproduct__title"><?= ucwords($category->category_name) ?></h3>
+            <a href="<?= base_url('home/subcategory/') . $category->id_category ?>" class="ourproduct__button">Details</a>
           </article>
         <?php endforeach ?>
       </div>

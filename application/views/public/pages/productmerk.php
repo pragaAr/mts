@@ -18,7 +18,7 @@
           <a href="<?= base_url('home/#brands') ?>" class="nav__link">Brands</a>
         </li>
         <li class="nav__item">
-          <a href="<?= base_url('home/#contact') ?>" class="nav__link">Contact Us</a>
+          <a href="<?= base_url('home/#contact') ?>" class="nav__link">Contact</a>
         </li>
       </ul>
       <div class="nav__close" id="nav-close">

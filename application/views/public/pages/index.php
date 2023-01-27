@@ -21,7 +21,7 @@
           <a href="#brands" class="nav__link">Brands</a>
         </li>
         <li class="nav__item">
-          <a href="#contact" class="nav__link">Contact Us</a>
+          <a href="#contact" class="nav__link">Contact</a>
         </li>
       </ul>
       <div class="nav__close" id="nav-close">
@@ -136,16 +136,16 @@
     </div>
   </section>
 
-  <section class="product section container" id="category">
+  <section class="ourproduct section container" id="category">
     <h2 class="section__title-center">
       Product Categories
     </h2>
-    <div class="product__container grid">
+    <div class="ourproduct__container">
       <?php foreach ($category as $category) : ?>
-        <article class="product__card">
-          <img src="<?= base_url('assets/upload/category/') . $category->category_img ?>" alt="img category" class="product__img">
-          <h3 class="product__title"><?= ucwords($category->category_name) ?></h3>
-          <a href="<?= base_url('home/subcategory/') . $category->id_category ?>" class="product__button">Details</a>
+        <article class="ourproduct__card">
+          <img src="<?= base_url('assets/upload/category/') . $category->category_img ?>" alt="img category" class="ourproduct__img">
+          <h3 class="ourproduct__title"><?= ucwords($category->category_name) ?></h3>
+          <a href="<?= base_url('home/subcategory/') . $category->id_category ?>" class="ourproduct__button">Details</a>
         </article>
       <?php endforeach; ?>
     </div>
@@ -154,16 +154,20 @@
     </div>
   </section>
 
-  <section class="product section container" id="products">
+  <section class="ourproduct section container" id="products">
     <h2 class="section__title-center">
       Product
     </h2>
-    <div class="product__container grid">
-      <?php foreach ($product as $product) : ?>
-        <article class="product__card">
-          <img src="<?= base_url('assets/upload/product/') . $product->product_img ?>" alt="img product" class="product__img">
-          <h3 class="subproduct__title"><?= ucwords($product->product_name) ?></h3>
-          <a href="<?= base_url('home/product/') . $product->id_product ?>" class="product__button">Details</a>
+    <div class="ourproduct__container">
+      <?php foreach ($products as $products) : ?>
+        <article class="ourproduct__card">
+          <img src="<?= base_url('assets/upload/product/') . $products->product_img ?>" alt="img product" class="ourproduct__img">
+          <h3 class="ourproduct__title"><?= ucwords($products->product_name) ?></h3>
+          <!-- <a href="<?= base_url('home/products/') . $products->id_product ?>" class="ourproduct__button">Details</a> -->
+          <a href="https://wa.me/628122564507?text=Saya%20ingin%20mendapatkan%20info%20product%20<?= ucwords($products->product_name) ?>%20" class="ourproduct__button" target="_blank">
+            <i class="ri-whatsapp-line"></i>
+            Ask Now
+          </a>
         </article>
       <?php endforeach; ?>
     </div>
@@ -197,8 +201,8 @@
   </section>
 
   <section class="contact section container" id="contact">
-    <div class="mailsuccess" data-flashdata="<?= $this->session->flashdata('mailsuccess'); ?>"></div>
-    <div class="mailfailed" data-flashdata="<?= $this->session->flashdata('mailfailed'); ?>"></div>
+    <div id="mailsuccess" data-flashdata="<?= $this->session->flashdata('mailsuccess'); ?>"></div>
+    <div id="mailfailed" data-flashdata="<?= $this->session->flashdata('mailfailed'); ?>"></div>
     <div class="contact__container grid">
       <div class="contact__box">
         <h2 class="section__title">

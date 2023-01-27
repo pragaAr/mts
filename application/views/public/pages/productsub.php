@@ -21,7 +21,7 @@
           <a href="<?= base_url('home/#brands') ?>" class="nav__link">Brands</a>
         </li>
         <li class="nav__item">
-          <a href="<?= base_url('home/#contact') ?>" class="nav__link">Contact Us</a>
+          <a href="<?= base_url('home/#contact') ?>" class="nav__link">Contact</a>
         </li>
       </ul>
       <div class="nav__close" id="nav-close">
@@ -53,12 +53,12 @@
     </form>
 
     <?php if (!empty($sub)) { ?>
-      <div class="product__container grid">
+      <div class="ourproduct__container grid">
         <?php foreach ($sub as $sub) : ?>
-          <article class="product__card">
-            <img src="<?= base_url('assets/upload/product/') . $sub->product_img ?>" alt="Product img" class="product__img">
-            <h3 class="subproduct__title"><?= ucwords($sub->product_name) ?></h3>
-            <a href="https://wa.me/628122564507?text=Saya%20ingin%20mendapatkan%20info%20product%20<?= ucwords($sub->product_name) ?>%20" class="product__button" target="_blank">
+          <article class="ourproduct__card">
+            <img src="<?= base_url('assets/upload/product/') . $sub->product_img ?>" alt="Product img" class="ourproduct__img">
+            <h3 class="ourproduct__title"><?= ucwords($sub->product_name) ?></h3>
+            <a href="https://wa.me/628122564507?text=Saya%20ingin%20mendapatkan%20info%20product%20<?= ucwords($sub->product_name) ?>%20" class="ourproduct__button" target="_blank">
               <i class="ri-whatsapp-line"></i>
               Ask Now
             </a>

@@ -53,12 +53,13 @@
 
 <script src="<?= base_url('assets/public/js/sweetalert2.all.min.js') ?>"></script>
 
-<script src="<?= base_url('assets/public/js/main.js') ?>"></script>
-
 <script src="<?= base_url('assets/public/js/swiper-bundle.min.js') ?>"></script>
+
+<script src="<?= base_url('assets/public/js/main.js') ?>"></script>
 
 <script src="<?= base_url('assets/public/js/swiper.js') ?>"></script>
 
+<script src="<?= base_url('assets/public/js/custom-swal.js') ?>"></script>
 
 </body>
 

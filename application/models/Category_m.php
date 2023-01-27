@@ -96,16 +96,22 @@ class Category_m extends CI_Model
     return $res;
   }
 
-  public function getDataProductCategory($id, $limit, $start, $keyword  = null)
+  public function getDataProductCategory($id, $limit, $start, $keyword = null)
   {
     if ($keyword) {
+
       $this->db->where('category_id', $id);
       $this->db->like('sub_name', $keyword);
     }
-    return $this->db->get('sub_category', $limit, $start)->result();
+    $this->db->select('*');
+    $this->db->from('sub_category');
+    $this->db->where('sub_category.category_id', $id);
+    $this->db->limit($limit, $start);
+    $res = $this->db->get()->result();
+    return $res;
   }
 
-  public function getDataProductSubcategory($id, $limit, $start, $keyword  = null)
+  public function getDataProductSubcategory($id, $limit, $start, $keyword = null)
   {
     if ($keyword) {
       $this->db->where('subcategory_id', $id);
