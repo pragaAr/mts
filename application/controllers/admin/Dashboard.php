@@ -9,7 +9,6 @@ class Dashboard extends CI_Controller
     $this->load->model('Category_m', 'Category');
     $this->load->model('Merk_m', 'Merk');
     $this->load->model('Product_m', 'Product');
-    $this->load->model('Subcategory_m', 'Subcategory');
 
     if (empty($this->session->userdata('id_user'))) {
       $this->session->set_flashdata('flashrole', 'Silahkan Login terlebih dahulu!');

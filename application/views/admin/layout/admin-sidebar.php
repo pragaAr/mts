@@ -42,12 +42,6 @@
              <p>Kategori</p>
            </a>
          </li>
-         <li class="nav-item <?= $this->uri->segment(2) == 'subcategory' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
-           <a href="<?= base_url('admin/subcategory') ?>">
-             <i class="fas fa-list"></i>
-             <p>Sub Kategori</p>
-           </a>
-         </li>
          <li class="nav-item <?= $this->uri->segment(2) == 'merk' || $this->uri->segment(2) == '' ? 'active' : '' ?>">
            <a href="<?= base_url('admin/merk') ?>">
              <i class="fas fa-tags"></i>

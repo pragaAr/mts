@@ -9,7 +9,6 @@ class Product extends CI_Controller
     $this->load->model('Category_m', 'Category');
     $this->load->model('Merk_m', 'Merk');
     $this->load->model('Product_m', 'Product');
-    $this->load->model('Subcategory_m', 'Subcategory');
 
     if (empty($this->session->userdata('id_user'))) {
       $this->session->set_flashdata('flashrole', 'Silahkan Login terlebih dahulu!');
@@ -24,8 +23,6 @@ class Product extends CI_Controller
     $data['editcat']    = $this->Category->getDataCategory();
     $data['merk']       = $this->Merk->getDataMerk();
     $data['editmerk']   = $this->Merk->getDataMerk();
-    $data['sub']        = $this->Subcategory->getDataSub();
-    $data['editsub']    = $this->Subcategory->getDataSub();
     $data['product']    = $this->Product->getProduct();
 
     $this->form_validation->set_rules('tipeproduk', 'Tipe Produk', 'trim|strtolower');

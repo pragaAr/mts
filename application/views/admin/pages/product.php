@@ -29,8 +29,6 @@
                       <th>Nama</th>
                       <th>Merk</th>
                       <th>Kategori</th>
-                      <th>Sub Kategori</th>
-                      <th>Satuan-Jumlah</th>
                       <th>Gambar</th>
                       <th>Date Add</th>
                       <th>Aksi</th>
@@ -45,8 +43,6 @@
                         <td><?= ucwords($data->product_name) ?></td>
                         <td><?= ucwords($data->nama_merk) ?></td>
                         <td><?= ucwords($data->category_name) ?></td>
-                        <td><?= ucwords($data->sub_name) ?></td>
-                        <td><?= ucwords($data->satuan) ?>-<?= $data->jumlah ?></td>
                         <td>
                           <img src=" <?= base_url('assets/upload/product/') . $data->product_img ?>" style="max-width:110px;">
                         </td>
@@ -127,43 +123,6 @@
                       <option value="<?= $cat->id_category ?>"><?= ucwords($cat->category_name) ?></option>
                     <?php endforeach; ?>
                   </select>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-lg-6">
-                  <label for="subkategoriproduk">
-                    Sub Kategori Produk
-                    <span class="text-danger">*</span>
-                  </label>
-                  <select name="subkategoriproduk" id="subkategoriproduk" class="form-control select2" style="width:100%;" autocomplete="off">
-                    <option value="" selected disabled>-Pilih Sub Kategori-</option>
-                    <?php foreach ($sub as $sub) : ?>
-                      <option value="<?= $sub->id_subcategory ?>"><?= ucwords($sub->sub_name) ?></option>
-                    <?php endforeach; ?>
-                  </select>
-                </div>
-                <div class="form-group col-lg-6">
-                  <label for="satuanproduk">
-                    Satuan Produk
-                    <span class="text-danger">*</span>
-                  </label>
-                  <input type="text" class="form-control text-capitalize" name="satuanproduk" placeholder="Pcs/Dos/Pak/etc.." required oninvalid="this.setCustomValidity('Satuan Produk wajib di isi!')" oninput="setCustomValidity('')" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-lg-4">
-                  <label for="jumlahproduk">
-                    Jumlah Produk
-                    <span class="text-danger">*</span>
-                  </label>
-                  <input type="number" class="form-control text-capitalize" name="jumlahproduk" placeholder="Jumlah Produk.." required oninvalid="this.setCustomValidity('Jumlah Produk wajib di isi!')" oninput="setCustomValidity('')" autocomplete="off">
-                </div>
-                <div class="form-group col-lg-8">
-                  <label for="keterangan">
-                    Keterangan
-                    <span class="text-danger">*</span>
-                  </label>
-                  <textarea name="keterangan" class="form-control text-capitalize" placeholder="Keterangan.." style="height: calc(2.25rem + 2px) !important; min-height: calc(2.25rem + 2px) !important;"></textarea>
                 </div>
               </div>
               <div class="form-row">
@@ -249,43 +208,6 @@
                       <option value="<?= $cat->id_category ?>"><?= ucwords($cat->category_name) ?></option>
                     <?php endforeach; ?>
                   </select>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-lg-6">
-                  <label for="subkategoriprodukedit">
-                    Sub Kategori Produk
-                    <span class="text-danger">*</span>
-                  </label>
-                  <select name="subkategoriprodukedit" id="subkategoriprodukedit" class="form-control select2 subkategoriprodukedit" style="width:100%;" autocomplete="off">
-                    <option value="" selected disabled>-Pilih Sub Kategori-</option>
-                    <?php foreach ($editsub as $sub) : ?>
-                      <option value="<?= $sub->id_subcategory ?>"><?= ucwords($sub->sub_name) ?></option>
-                    <?php endforeach; ?>
-                  </select>
-                </div>
-                <div class="form-group col-lg-6">
-                  <label for="satuanprodukedit">
-                    Satuan Produk
-                    <span class="text-danger">*</span>
-                  </label>
-                  <input type="text" class="form-control text-capitalize satuanprodukedit" name="satuanprodukedit" placeholder="Pcs/Dos/Pak/etc.." required oninvalid="this.setCustomValidity('Satuan Produk wajib di isi!')" oninput="setCustomValidity('')" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-lg-4">
-                  <label for="jumlahprodukedit">
-                    Jumlah Produk
-                    <span class="text-danger">*</span>
-                  </label>
-                  <input type="number" class="form-control jumlahprodukedit" name="jumlahprodukedit" placeholder="Jumlah Produk.." required oninvalid="this.setCustomValidity('Jumlah Produk wajib di isi!')" oninput="setCustomValidity('')" autocomplete="off">
-                </div>
-                <div class="form-group col-lg-8">
-                  <label for="keteranganedit">
-                    Keterangan
-                    <span class="text-danger">*</span>
-                  </label>
-                  <textarea name="keterangan" class="form-control text-capitalize keteranganedit" placeholder="Keterangan.." style="height: calc(2.25rem + 2px) !important; min-height: calc(2.25rem + 2px) !important;"></textarea>
                 </div>
               </div>
               <div class="form-row">

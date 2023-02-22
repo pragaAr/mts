@@ -17,9 +17,40 @@ class Category_m extends CI_Model
     return $this->db->get('category')->num_rows();
   }
 
-  public function getSubRows($id)
+  public function getProductCategoryRows($id)
   {
-    return $this->db->get_where('sub_category', ['category_id' => $id])->num_rows();
+    return $this->db->get_where('product', ['category_id' => $id])->num_rows();
+  }
+
+  public function getDataProductCategory($id, $limit, $start, $keyword = null)
+  {
+    // if ($keyword) {
+    //   $this->db->where('category_id', $id);
+    //   $this->db->like('category_name', $keyword);
+    //   $this->db->or_like('product_name', $keyword);
+    // }
+
+    // $this->db->select('a.id_category, a.category_name, b.id_product, b.product_type, b.product_name, b.product_img, b.category_id');
+    // $this->db->from('category a');
+    // $this->db->join('product b', 'b.category_id = a.id_category');
+    // $this->db->where('a.id_category', $id);
+    // $this->db->limit($limit, $start);
+    // $res = $this->db->get()->result();
+    // return $res;
+
+    if ($keyword) {
+      $this->db->where('category_id', $id);
+      $this->db->like('product_name', $keyword);
+      $this->db->or_like('nama_merk', $keyword);
+    }
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, category.id_category, category.category_name, merk.id_merk, merk.nama_merk');
+    $this->db->from('product');
+    $this->db->where('product.category_id', $id);
+    $this->db->join('category', 'category.id_category = product.category_id', 'left');
+    $this->db->join('merk', 'merk.id_merk = product.merk_id');
+    $this->db->limit($limit, $start);
+    $res = $this->db->get()->result();
+    return $res;
   }
 
   public function getLimitDataCategory($limit, $start, $keyword = null)
@@ -71,9 +102,9 @@ class Category_m extends CI_Model
 
   public function getDataSubcategoryUri($id)
   {
-    $this->db->select('id_subcategory');
-    $this->db->from('sub_category');
-    $this->db->where('id_subcategory', $id);
+    $this->db->select('id_category');
+    $this->db->from('category');
+    $this->db->where('id_category', $id);
     $res = $this->db->get()->row();
     return $res;
   }
@@ -89,25 +120,10 @@ class Category_m extends CI_Model
 
   public function getDataSubcategoryName($id)
   {
-    $this->db->select('sub_name');
-    $this->db->from('sub_category');
-    $this->db->where('id_subcategory', $id);
+    $this->db->select('category_name');
+    $this->db->from('category');
+    $this->db->where('id_category', $id);
     $res = $this->db->get()->row();
-    return $res;
-  }
-
-  public function getDataProductCategory($id, $limit, $start, $keyword = null)
-  {
-    if ($keyword) {
-
-      $this->db->where('category_id', $id);
-      $this->db->like('sub_name', $keyword);
-    }
-    $this->db->select('*');
-    $this->db->from('sub_category');
-    $this->db->where('sub_category.category_id', $id);
-    $this->db->limit($limit, $start);
-    $res = $this->db->get()->result();
     return $res;
   }
 
@@ -169,7 +185,7 @@ class Category_m extends CI_Model
 
   public function updateData($id)
   {
-    $kategori = $this->input->post('categoryname');
+    $kategori = strtolower($this->input->post('categoryname'));
 
     $where = array(
       'id_category'   => $id

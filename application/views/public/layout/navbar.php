@@ -15,9 +15,6 @@
           <a href="#category" class="nav__link">Category</a>
         </li>
         <li class="nav__item">
-          <a href="#product" class="nav__link">Product</a>
-        </li>
-        <li class="nav__item">
           <a href="#brands" class="nav__link">Brands</a>
         </li>
         <li class="nav__item">

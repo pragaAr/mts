@@ -159,15 +159,11 @@ $(".edit-product").on("click", function (e) {
 			$(".namaprodukedit").val(data.product_name);
 			$(".merkprodukedit").val(data.merk_id).trigger("change");
 			$(".kategoriprodukedit").val(data.category_id).trigger("change");
-			$(".subkategoriprodukedit").val(data.subcategory_id).trigger("change");
-			$(".satuanprodukedit").val(data.satuan);
-			$(".jumlahprodukedit").val(data.jumlah);
 			$(".oldprodimg").val(data.product_img);
 			$(".gambarproductedit").attr(
 				"src",
 				"../assets/upload/product/" + data.product_img
 			);
-			$(".keteranganedit").val(data.keterangan);
 		},
 	});
 

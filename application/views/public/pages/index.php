@@ -6,22 +6,19 @@
     <div class="nav__menu" id="nav-menu">
       <ul class="nav__list">
         <li class="nav__item">
-          <a href="#home" class="nav__link active-link">Home</a>
+          <a href="#home" class="nav__link active-link">Beranda</a>
         </li>
         <li class="nav__item">
-          <a href="#about" class="nav__link">About</a>
+          <a href="#about" class="nav__link">Tantang</a>
         </li>
         <li class="nav__item">
-          <a href="#category" class="nav__link">Category</a>
+          <a href="#products" class="nav__link">Produk</a>
         </li>
         <li class="nav__item">
-          <a href="#products" class="nav__link">Product</a>
+          <a href="#brands" class="nav__link">Merk</a>
         </li>
         <li class="nav__item">
-          <a href="#brands" class="nav__link">Brands</a>
-        </li>
-        <li class="nav__item">
-          <a href="#contact" class="nav__link">Contact</a>
+          <a href="#contact" class="nav__link">Kontak</a>
         </li>
       </ul>
       <div class="nav__close" id="nav-close">
@@ -128,57 +125,34 @@
 
           <?php } ?>
         </div>
-        <a href="#products" class="button--link button--flex">
-          See our product
-          <i class="ri-arrow-right-down-line button__icon"></i>
+        <a href="<?= base_url('company_profile') ?>" target="_blank" class="button button--flex">
+          Baca Selengkapnya <i class="ri-arrow-right-line button__icon"></i>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="ourproduct section container" id="category">
+  <section class="ourproduct section container" id="products">
     <h2 class="section__title-center">
-      Product Categories
+      Kategori Produk
     </h2>
     <div class="ourproduct__container">
       <?php foreach ($category as $category) : ?>
         <article class="ourproduct__card">
           <img src="<?= base_url('assets/upload/category/') . $category->category_img ?>" alt="img category" class="ourproduct__img">
           <h3 class="ourproduct__title"><?= ucwords($category->category_name) ?></h3>
-          <a href="<?= base_url('home/subcategory/') . $category->id_category ?>" class="ourproduct__button">Details</a>
+          <a href="<?= base_url('home/productcategories/') . $category->id_category ?>" class="ourproduct__button">Details</a>
         </article>
       <?php endforeach; ?>
     </div>
     <div class="d-flex">
-      <a href="<?= base_url('home/productcategories') ?>" class="see__all__btn">See All Categories</a>
-    </div>
-  </section>
-
-  <section class="ourproduct section container" id="products">
-    <h2 class="section__title-center">
-      Product
-    </h2>
-    <div class="ourproduct__container">
-      <?php foreach ($products as $products) : ?>
-        <article class="ourproduct__card">
-          <img src="<?= base_url('assets/upload/product/') . $products->product_img ?>" alt="img product" class="ourproduct__img">
-          <h3 class="ourproduct__title"><?= ucwords($products->product_name) ?></h3>
-          <!-- <a href="<?= base_url('home/products/') . $products->id_product ?>" class="ourproduct__button">Details</a> -->
-          <a href="https://wa.me/628122564507?text=Saya%20ingin%20mendapatkan%20info%20product%20<?= ucwords($products->product_name) ?>%20" class="ourproduct__button" target="_blank">
-            <i class="ri-whatsapp-line"></i>
-            Ask Now
-          </a>
-        </article>
-      <?php endforeach; ?>
-    </div>
-    <div class="d-flex">
-      <a href="<?= base_url('home/products') ?>" class="see__all__btn">See All Product</a>
+      <a href="<?= base_url('home/products') ?>" class="see__all__btn">Katalog Product</a>
     </div>
   </section>
 
   <section class="brand section" id="brands">
     <h2 class="section__title-center brand__title">
-      Product Brands
+      Merk Produk
     </h2>
     <div class="brand__container container">
       <div class="slide-container">
@@ -206,11 +180,11 @@
     <div class="contact__container grid">
       <div class="contact__box">
         <h2 class="section__title">
-          Contact us by phone <br> or send us an email
+          Hubungi Kami via Telpon <br> Atau Kirim Email
         </h2>
         <div class="contact__data">
           <div class="contact__information">
-            <h3 class="contact__subtitle">Call us for support you need</h3>
+            <h3 class="contact__subtitle">Hubungi kami jika anda membutuhkan bantuan</h3>
             <a href="https://wa.me/628122564507" target="_blank" class="contact__description">
               <i class="ri-phone-line contact__icon"></i>
               0812-2564-507
@@ -228,23 +202,23 @@
         <div class="contact__inputs">
           <div class="contact__content">
             <input type="text" name="yourname" class="contact__input" required autocomplete="off">
-            <label for="yourname" class="contact__label">Your Name</label>
+            <label for="yourname" class="contact__label">Nama Anda</label>
           </div>
           <div class="contact__content">
             <input type="email" name="yourmail" class="contact__input" required autocomplete="off">
-            <label for="yourmail" class="contact__label">Email</label>
+            <label for="yourmail" class="contact__label">Alamat Email</label>
           </div>
           <div class="contact__content">
             <input type="text" name="yoursubject" class="contact__input" required autocomplete="off">
-            <label for="yoursubject" class="contact__label">Subject</label>
+            <label for="yoursubject" class="contact__label">Subjek Email</label>
           </div>
           <div class="contact__content contact__area">
             <textarea type="text" name="yourmessage" class="contact__input" maxlength="150" required autocomplete="off"></textarea>
-            <label for="yourmessage" class="contact__label">Message</label>
+            <label for="yourmessage" class="contact__label">Pesan</label>
           </div>
         </div>
         <button class="button button--flex" type="submit">
-          Send Message
+          Kirim Email
           <i class="ri-arrow-right-up-line button__icon"></i>
         </button>
       </form>

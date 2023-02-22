@@ -14,10 +14,9 @@ class Product_m extends CI_Model
     if ($keyword) {
       $this->db->like('product_name', $keyword)->or_like('nama_merk', $keyword);
     }
-    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.subcategory_id, product.satuan, product.jumlah, product.product_img, product.keterangan, category.id_category, category.category_name, sub_category.id_subcategory, sub_category.sub_name, merk.id_merk, merk.nama_merk');
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, category.id_category, category.category_name, merk.id_merk, merk.nama_merk');
     $this->db->from('product');
     $this->db->join('category', 'category.id_category = product.category_id', 'left');
-    $this->db->join('sub_category', 'sub_category.id_subcategory = product.subcategory_id', 'left');
     $this->db->join('merk', 'merk.id_merk = product.merk_id');
     $this->db->limit($limit, $start);
     $res = $this->db->get()->result();
@@ -31,22 +30,20 @@ class Product_m extends CI_Model
 
   public function getData()
   {
-    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.subcategory_id, product.satuan, product.jumlah, product.product_img, product.keterangan, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name, sub_category.id_subcategory, sub_category.sub_name');
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name');
     $this->db->from('product');
     $this->db->join('merk', 'merk.id_merk = product.merk_id', 'left');
     $this->db->join('category', 'category.id_category = product.category_id', 'left');
-    $this->db->join('sub_category', 'sub_category.id_subcategory = product.subcategory_id', 'left');
     $res = $this->db->get()->result();
     return $res;
   }
 
   public function getLimitData()
   {
-    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.subcategory_id, product.satuan, product.jumlah, product.product_img, product.keterangan, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name, sub_category.id_subcategory, sub_category.sub_name');
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name');
     $this->db->from('product');
     $this->db->join('merk', 'merk.id_merk = product.merk_id', 'left');
     $this->db->join('category', 'category.id_category = product.category_id', 'left');
-    $this->db->join('sub_category', 'sub_category.id_subcategory = product.subcategory_id', 'left');
     $this->db->limit(12);
     $res = $this->db->get()->result();
     return $res;
@@ -54,23 +51,21 @@ class Product_m extends CI_Model
 
   public function getProduct()
   {
-    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.subcategory_id, product.satuan, product.jumlah, product.product_img, product.keterangan, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name, sub_category.id_subcategory, sub_category.sub_name');
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name');
     $this->db->from('product');
     $this->db->join('merk', 'merk.id_merk = product.merk_id', 'left');
     $this->db->join('category', 'category.id_category = product.category_id', 'left');
-    $this->db->join('sub_category', 'sub_category.id_subcategory = product.subcategory_id', 'left');
     $res = $this->db->get()->result();
     return $res;
   }
 
   public function getDataProductMerk($id)
   {
-    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.subcategory_id, product.satuan, product.jumlah, product.product_img, product.keterangan, product.productAdd, merk.id_merk, merk.nama_merk, merk.merk_img, category.id_category, category.category_name, sub_category.id_subcategory, sub_category.sub_name');
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, product.productAdd, merk.id_merk, merk.nama_merk, merk.merk_img, category.id_category, category.category_name');
     $this->db->from('product');
     $this->db->where('product.merk_id', $id);
     $this->db->join('merk', 'merk.id_merk = product.merk_id', 'left');
     $this->db->join('category', 'category.id_category = product.category_id', 'left');
-    $this->db->join('sub_category', 'sub_category.id_subcategory = product.subcategory_id', 'left');
     $res = $this->db->get()->result();
     return $res;
   }
@@ -91,12 +86,11 @@ class Product_m extends CI_Model
 
   public function getDataId($id)
   {
-    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.subcategory_id, product.satuan, product.jumlah, product.product_img, product.keterangan, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name, sub_category.id_subcategory, sub_category.sub_name');
+    $this->db->select('product.id_product, product.product_type, product.product_name, product.merk_id, product.category_id, product.product_img, product.productAdd, merk.id_merk, merk.nama_merk, category.id_category, category.category_name');
     $this->db->from('product');
     $this->db->where('product.id_product', $id);
     $this->db->join('merk', 'merk.id_merk = product.merk_id', 'left');
     $this->db->join('category', 'category.id_category = product.category_id', 'left');
-    $this->db->join('sub_category', 'sub_category.id_subcategory = product.subcategory_id', 'left');
     $res = $this->db->get()->row();
     return $res;
   }
@@ -107,10 +101,6 @@ class Product_m extends CI_Model
     $nama     = $this->input->post('namaproduk');
     $merk     = $this->input->post('merkproduk');
     $kategori = $this->input->post('kategoriproduk');
-    $sub      = $this->input->post('subkategoriproduk');
-    $satuan   = $this->input->post('satuanproduk');
-    $jumlah   = $this->input->post('jumlahproduk');
-    $desc     = $this->input->post('keterangan');
     $date     = date('Y-m-d H:i:s');
 
     $uploadimg = $_FILES['gambarproduk']['name'];
@@ -130,11 +120,7 @@ class Product_m extends CI_Model
           'product_name'    => $nama,
           'merk_id'         => $merk,
           'category_id'     => $kategori,
-          'subcategory_id'  => $sub,
-          'satuan'          => $satuan,
-          'jumlah'          => $jumlah,
           'product_img'     => $gambar,
-          'keterangan'      => $desc,
           'productAdd'      => $date
         );
 
@@ -152,10 +138,6 @@ class Product_m extends CI_Model
     $nama     = $this->input->post('namaprodukedit');
     $merk     = $this->input->post('merkprodukedit');
     $kategori = $this->input->post('kategoriprodukedit');
-    $sub      = $this->input->post('subkategoriprodukedit');
-    $satuan   = $this->input->post('satuanprodukedit');
-    $jumlah   = $this->input->post('jumlahprodukedit');
-    $desc     = $this->input->post('keteranganedit');
 
     $where = array(
       'id_product'    => $id
@@ -183,11 +165,7 @@ class Product_m extends CI_Model
           'product_name'    => $nama,
           'merk_id'         => $merk,
           'category_id'     => $kategori,
-          'subcategory_id'  => $sub,
-          'satuan'          => $satuan,
-          'jumlah'          => $jumlah,
           'product_img'     => $newgambar,
-          'keterangan'      => $desc,
         );
 
         $this->db->update('product', $data, $where);
@@ -202,10 +180,6 @@ class Product_m extends CI_Model
       'product_name'    => $nama,
       'merk_id'         => $merk,
       'category_id'     => $kategori,
-      'subcategory_id'  => $sub,
-      'satuan'          => $satuan,
-      'jumlah'          => $jumlah,
-      'keterangan'      => $desc,
     );
 
     $this->db->update('product', $data, $where);

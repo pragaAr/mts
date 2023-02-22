@@ -5,12 +5,12 @@
         <img src="<?= base_url('assets/logo/mts-logo.png') ?>" alt="Mts logo" style="width:53px; height:40px">mitra teknik sejati
       </a>
       <h3 class="footer__title">
-        Stay connected with us <br> to get updates
+        Tetap terhubung <br> untuk mendapatkan info baru
       </h3>
     </div>
     <div class="footer__content">
       <h3 class="footer__title">
-        Follow Us
+        Ikuti Kami
       </h3>
       <ul class="footer__data">
         <li class="footer__information">
@@ -34,7 +34,7 @@
       </ul>
     </div>
     <div class="footer__content">
-      <h3 class="footer__title">Our Address</h3>
+      <h3 class="footer__title">Alamat Kami</h3>
       <ul class="footer__data">
         <li class="footer__information">Jl. Griya Klipang Asri II Blok R Baru No.60,</li>
         <li class="footer__information">Sendangmulyo - Kec. Tembalang,</li>

@@ -11,19 +11,15 @@ class Home extends CI_Controller
     $this->load->model('Hero_m', 'Hero');
     $this->load->model('Merk_m', 'Merk');
     $this->load->model('Product_m', 'Product');
-    $this->load->model('Subcategory_m', 'Subcategory');
   }
 
   public function index()
   {
     $data['about']    = $this->About->getLatestData();
-    $data['category'] = $this->Category->getLimitData();
+    $data['category'] = $this->Category->getData();
     $data['hero']     = $this->Hero->getLatestData();
     $data['merk']     = $this->Merk->getData();
     $data['merks']     = $this->Merk->getData();
-    $data['product']  = $this->Product->getLimitData();
-    $data['products']  = $this->Product->getLimitData();
-    $data['sub']      = $this->Subcategory->getData();
 
     $this->load->view('public/layout/header');
     $this->load->view('public/pages/index', $data);
@@ -40,14 +36,16 @@ class Home extends CI_Controller
       $keyword = null;
     }
 
-    $config['base_url']   = 'http://localhost/mts/home/products';
+    $config['base_url']     = 'http://localhost/mts/home/products';
 
-    $config['total_rows'] = $this->Product->getRows();
-    $config['per_page']   = 8;
+    $config['total_rows']   = $this->Product->getRows();
+    $config['per_page']     = 8;
+    $config['uri_segment']  = 3;
+
 
     $this->pagination->initialize($config);
 
-    $start            = $this->uri->segment('3');
+    $start            = $this->uri->segment(3);
     $data['product']  = $this->Product->getProductData($config['per_page'], $start, $keyword);
 
     $this->load->view('public/layout/header');
@@ -55,12 +53,7 @@ class Home extends CI_Controller
     $this->load->view('public/layout/footer');
   }
 
-  public function categories($id)
-  {
-    
-  }
-
-  public function productcategories()
+  public function productcategories($id)
   {
     $this->load->library('pagination');
 
@@ -70,77 +63,23 @@ class Home extends CI_Controller
       $keyword = null;
     }
 
-    $config['base_url']   = 'http://localhost/mts/home/productcategories';
+    $config['base_url']     = 'http://localhost/mts/home/productcategories/' . $id;
 
-    $config['total_rows'] = $this->Category->getRows();
-    $config['per_page']   = 8;
+    $config['total_rows']   = $this->Category->getProductCategoryRows($id);
+    $config['per_page']     = 8;
+    $config['uri_segment']  = 4;
 
-    $this->pagination->initialize($config);
-
-    $start              = $this->uri->segment('3');
-    $data['category']   = $this->Category->getLimitDataCategory($config['per_page'], $start, $keyword);
-
-    $this->load->view('public/layout/header');
-    $this->load->view('public/pages/productcategories', $data);
-    $this->load->view('public/layout/footer');
-  }
-
-  public function subcategory($id)
-  {
-    $this->load->library('pagination');
-
-    if ($this->input->post('submit')) {
-      $keyword = $this->input->post('sub-name');
-    } else {
-      $keyword = null;
-    }
-
-    $config['base_url']   = "http://localhost/mts/home/subcategory/$id/";
-
-    $config['total_rows'] = $this->Category->getSubRows($id);
-
-    $config['per_page']   = 8;
 
     $this->pagination->initialize($config);
 
-    $start              = $this->uri->segment('4');
+    $start              = $this->uri->segment(4);
     $data['id']         = $id;
     $data['iduri']      = $this->Category->getDataCategoryUri($id);
     $data['name']       = $this->Category->getDataCategoryName($id);
     $data['category']   = $this->Category->getDataProductCategory($id, $config['per_page'], $start, $keyword);
 
     $this->load->view('public/layout/header');
-    $this->load->view('public/pages/productcategory', $data);
-    $this->load->view('public/layout/footer');
-  }
-
-  public function subcategorydetail($id)
-  {
-    $this->load->library('pagination');
-
-    if ($this->input->post('submit')) {
-      $keyword = $this->input->post('product-name');
-    } else {
-      $keyword = null;
-    }
-
-    $config['base_url']   = "http://localhost/mts/home/subcategorydetail/$id/";
-
-    $config['total_rows'] = $this->Product->getProductRows($id);
-
-    $config['per_page']   = 8;
-
-    $this->pagination->initialize($config);
-
-    $start              = $this->uri->segment('4');
-
-    $data['id']         = $id;
-    $data['iduri']      = $this->Category->getDataSubcategoryUri($id);
-    $data['name']       = $this->Category->getDataSubcategoryName($id);
-    $data['sub']        = $this->Category->getDataProductSubcategory($id, $config['per_page'], $start, $keyword);
-
-    $this->load->view('public/layout/header');
-    $this->load->view('public/pages/productsub', $data);
+    $this->load->view('public/pages/productcategories', $data);
     $this->load->view('public/layout/footer');
   }
 
